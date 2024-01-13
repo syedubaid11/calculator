@@ -1,12 +1,18 @@
-const myButton=document.querySelectorAll("buttonCalc")
-let storedValue = "";
+const display = document.getElementById("display");
 
-    // Event listener for button click
-    myButton.addEventListener("click", function () {
-        // Get the value of the button
-        const buttonValue = myButton.textContent;
+function appendToDisplay(input){
+    display.value += input;
+}
 
-        // Store the value
-        storedValue += buttonValue; }
+function clearDisplay(){
+    display.value = "";
+}
 
-console.log("storedValue")
+function calculate(){
+    try{
+        display.value = eval(display.value);
+    }
+    catch(error){
+        display.value = "Error";
+    }
+}
